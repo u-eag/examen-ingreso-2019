@@ -1,0 +1,461 @@
+1. 
+    // un triángulo equilátero tiene los tres lados iguales
+    // solo es necesario pedir el dalo de UN lado por prompt
+
+    var lado;
+    var perimetro;
+    var mensaje;
+
+    // pido el dato por prompt:
+
+    lado = parseInt(prompt("Ingrese el valor del lado en centímetros"));
+
+    // proceso el dato: el perimetro es la suma de los lados
+
+    perimetro = lado * 3;
+
+    // muestro la información
+
+    mensaje = "Un triángulo equilátero cuyo lado vale " + lado + " cm tiene un perímetro de " + perimetro + " cm."
+
+    alert (mensaje);
+
+2.
+    var nombre1;
+    var nombre2;
+    var peso1;
+    var peso2;
+    
+    var suma;
+    var promedio;
+
+    var mensaje;
+
+    // pido los datos:
+
+    nombre1 = prompt("Ingrese su nombre");
+
+    peso1 = parseFloat(prompt("Ingrese su peso"));
+
+    nombre2 = prompt("Ingrese el nombre de su pareja");
+
+    peso2 = parseFloat(prompt("Ingrese el peso de su pareja"));
+
+    // proceso los datos:
+
+    suma = peso1 + peso2;
+
+    promedio = suma / 2;
+
+    // muestro la información:
+
+    mensaje = "Ustedes se llaman " + nombre1 + " y " + nombre2 + " pesan " + peso1 + " y " + peso2 + " kilos, que sumados son " + suma + " kilos y el promedio de peso " + promedio;
+
+    alert(mensaje);
+
+3.
+    var precio;
+    var porcentajeDescuento;
+
+    var precioDescuento;
+    var precioFinal;
+
+    var mensaje;
+
+    // pido los datos:
+
+    precio = parseFloat(prompt("Ingrese el precio"));
+
+    porcentajeDescuento = prompt("Ingrese el porcentaje de descuento");
+
+    // proceso los datos:
+
+    precioDescuento = precio * porcentajeDescuento / 100;
+
+    precioFinal = precio - precioDescuento;
+
+    // muestro la información:
+
+    document.getElementById("elPrecioFinal").value = precioFinal;
+
+4.
+    var num1;
+    var num2;
+
+    var resta;
+    var suma;
+
+    var mensaje;
+
+    // pido los datos:
+
+    num1 = parseInt(prompt("Ingrese el primer número"));
+
+    num2 = parseInt(prompt("Ingrese el segundo número"));
+
+    // proceso los datos:
+
+    if (num1 == num2) {
+        // para concatenar 2 números los sumo con un string
+        mensaje = "Los números ingresados son: " + num1 + num2;
+
+    } else if (num1 > num2) {
+        resta = num1 - num2;
+        mensaje = "La resta de los números ingresados es " + resta;
+       
+        if (resta > 10) {
+            mensaje = mensaje + " y superó el 10"
+        }
+
+    } else {
+        suma = num1 + num2;
+        mensaje = "La suma es " + suma;
+    }
+
+    // muestro la información:
+
+    alert(mensaje);
+
+5.
+    // variables para solicitar los datos:
+    var continente;
+    var estadia;
+    var formaPago;
+
+    // variables para procesar los datos:
+    var precio = 100;
+    var precioDescuento;
+    var precioEstadia;
+
+    // variables para mostrar la info:
+    var mensaje;
+
+    // solicito los datos:
+
+    continente = document.getElementById("Marca").value;
+
+    estadia = parseInt(prompt("Ingrese la cantidad de días"));
+
+    formaPago = prompt("Ingrese la forma de pago: debito, mercadoPago, efectivo u otros medios");
+
+    // proceso los datos:
+
+    switch(continente) {
+
+        case "América":
+        // tiene un 50% de descuento (precio * 0.5)
+        // si además paga por débito se le agrega un 10% más de descuento (precio * 0.4)
+            if (formaPago == "debito") {
+                precioDescuento = precio * 0.4;
+            } else {
+                precioDescuento = precio * 0.5;
+            }
+            break;
+
+        case "África":
+        // tiene un 60& de descuento (precio * 0.4)
+        // si además paga con mercadoPago o efectivo se le agrega un 15% más (precio * 0.25)
+            if (formaPago == "mercadoPago" || formaPago == "efectivo") {
+                precioDescuento = precio * 0.25;
+            } else {
+                precioDescuento = precio * 0.4;
+            }
+            break;
+
+        case "Europa":
+        // tiene un 20% de descuento (precio * 0.8)
+        // si además paga con débito se le agrega un 15% más (precio * 0.65)
+        // con mercadoPago un 10% más (precio * 0.7)
+        // con cualquier otro medio se le agrega un 5% más de descuento (precio * 0.75)
+            if (formaPago == "debito") {
+                precioDescuento = precio * 0.65;
+
+            } else if (formaPago == "mercadoPago") {
+                precioDescuento = precio * 0.7;
+
+            } else {
+                precioDescuento = precio * 0.75;
+            }
+            break;
+        
+        default:
+        // cualquier otro continente tiene un recargo del 20% (precio * 1.2)
+            precioDescuento = precio * 1.2;
+    }
+
+    precioEstadia = estadia * precioDescuento;
+
+    // muestro la info:
+
+    mensaje = "Usted viajará " + estadia + " días a " + continente + " por $" + precioEstadia + " abonando con " + formaPago;
+
+    alert(mensaje);
+
+6.
+        var hora;
+
+        var mensaje;
+        flag = true;
+
+        // pido el dato:
+
+        hora = parseInt(document.getElementById("laHora").value);
+
+        // proceso el dato:
+
+        if (hora <= 24 && hora >= 0) {
+
+                switch (hora) {
+
+                        case 6:
+                        case 7:
+                        case 8:
+                        case 9:
+                        case 10:
+                        case 11:
+                                mensaje = "es de mañana";
+                                break;
+                        
+                        case 12:
+                        case 13:
+                        case 14:
+                        case 15:
+                        case 16:
+                        case 17:
+                        case 18:
+                        case 19:
+                                mensaje = "es de tarde";
+                                break;
+                        
+                        default:
+                                mensaje = "es de noche";
+                                // si la hora está entre las 20 y las 24 (ambas incluidas), mandarlo a dormir
+                                if (hora <= 24 && hora >= 20) {
+                                        mensaje = mensaje + ", a dormir";
+                                }
+                }
+        } else {
+                alert("Ingreso inválido. Inténtelo nuevamente con un número entre 0 y 24.");
+                flag = false;
+        }
+
+        // muestro la info:
+
+        if (flag) {
+        alert(mensaje);
+        }
+
+7.
+// variables para pedir datos:
+    var altura;
+    var sexo;
+    var cantidad = 2;
+    // la cantidad es 5 jugadores
+
+// variables para procesar los datos:
+    var promedio;
+    var acumuladorAltura = 0;
+    
+    var alturaBaja;
+    var sexoAlturaBaja;
+    var flag = 0;
+
+    var contadorMujeres = 0;
+
+// variables para mostrar info:
+    var mensaje;
+
+    // como sé la cantidad de iteraciones en tiempo de compilación, uso "for":
+    for (var i=0; i<cantidad; i++) {
+
+        altura = parseInt(prompt("Ingrese la altura en cm"));
+
+        while (!(altura <= 250 && altura >= 0)) {
+            altura = parseInt(prompt("Altura inválida. Ingrese nuevamente la altura (entre 0 y 250 cm)."));
+        }
+
+        sexo = prompt("Ingrese el sexo: 'f' para mujer y 'm' para hombre").toLowerCase();
+
+        while (!(sexo == "f" || sexo == "m")) {
+            sexo = prompt("Ingreso inválido. Ingrese nuevamente el sexo: 'f' para mujer y 'm' para hombre").toLowerCase();
+        }
+
+        acumuladorAltura += altura;
+        
+        if (altura < alturaBaja || flag == 0) {
+            alturaBaja = altura;
+            sexoAlturaBaja = sexo;
+            flag = 1;
+        }
+
+        if (altura > 190 && sexo == "f") {
+            contadorMujeres++;
+        }
+    }
+
+    promedio = acumuladorAltura / cantidad;
+
+    // muestro la info:
+
+    mensaje = "a) El promedio de las alturas totales es: " + promedio + "\nb) La altura más baja es: " + alturaBaja + " y el sexo: " + sexoAlturaBaja + "\nc) La cantidad de mujeres que su altura supera los 190 centimetros es: " + contadorMujeres;
+
+    alert(mensaje);
+
+8.
+    var letra;
+    var numero;
+
+    var seguir;
+
+    // variables para los puntos a) y b):
+    var contadorPar = 0;
+    var contadorImpar = 0;
+
+    // variable para el punto c):
+    var contadorCero = 0;
+
+    // variables para los puntos d) y e):
+    var acumuladorPositivo = 0;
+    var contadorPositivo = 0;
+    var promedioPositivo;
+    var acumuladorNegativo = 0;
+
+    // variables para el punto f):
+    var numeroMaximo;
+    var letraMaximo;
+    var numeroMinimo;
+    var letraMinimo;
+    var flag = 0;
+
+    // como los datos deben ingresarse al menos una vez, uso "do while":
+    do {
+        letra = prompt("Ingrese una letra");
+
+        numero = parseInt(prompt("Ingrese un número entre -100 y 100"));
+
+        while (!(numero <= 100 && numero >= -100)) {
+            numero = parseInt(prompt("Número inválido. Inténtelo nuevamente ingresando un número entre -100 y 100."));
+        }
+
+        // punto a) y b):
+        if (numero % 2 == 0) {
+            contadorPar++;
+        } else {
+            contadorImpar++;
+        }
+
+        // punto c):
+        if (numero == 0) {
+            contadorCero++;
+        }
+
+        // pundos d) y e):
+        if (numero > 0) {
+            acumuladorPositivo += numero;
+            contadorPositivo++;
+            promedioPositivo = acumuladorPositivo / contadorPositivo;
+        } else {
+            acumuladorNegativo -= numero;
+        }
+
+        // punto f):
+        if (numero > numeroMaximo || flag == 0) {
+            numeroMaximo = numero;
+            letraMaximo = letra;
+        }
+        if (numero < numeroMinimo || flag == 0) {
+            numeroMinimo = numero;
+            letraMinimo = letra;
+            flag = 1;
+        }
+
+        seguir = confirm("¿Desea continuar ingresando datos?");
+    } while (seguir);
+
+    document.write("a) La cantidad de números pares es: " + contadorPar);
+    document.write("<br>b) La cantidad de números impares es: " + contadorImpar);
+    document.write("<br>c) La cantidad de ceros es: " + contadorCero);
+    document.write("<br>d) El promedio de todos los números positivos ingresados es: " + promedioPositivo);
+    document.write("<br>e) La suma de todos los números negativos es: -" + acumuladorNegativo);
+    document.write("<br>f) El número y la letra del máximo es: " + numeroMaximo + letraMaximo + " y del mínimo es: " + numeroMinimo + letraMinimo);
+
+9.
+
+    var pais;
+    var habitantes;
+    var temperaturaMinima;
+
+    var seguir;
+
+    // variable para el punto a):
+    var contadorTemperaturaPar = 0;
+
+    // variables para el punto b):
+    var menosHabitantes = 7001;
+    var paisMenosHabitantes;
+
+    // variable para el punto c):
+    var contadorTemperatura40 = 0;
+
+    // variables para el punto d):
+    var acumuladorHabitantes = 0;
+    var contadorHabitantes = 0;
+    var promedioHabitantes;
+
+    // variables para el punto f):
+    var temperaturaMinimaIngresada;
+    var paisTemperaturaMinimaIngresada;
+    var flag = 0;
+
+    // como los datos deben ingresarse al menos una vez, uso "do while":
+    do {
+        pais = prompt("Ingrese el nombre del país");
+
+        habitantes = parseFloat(prompt("Ingrese la cantidad de habitantes (en millones)"));
+
+        while (!(habitantes <= 7000 && habitantes >= 1)) {
+            habitantes = parseFloat(prompt("Cantidad de habitantes inválida. Ingrese nuevamente la cantidad de habitantes (en millones)"));
+        }
+
+        temperaturaMinima = parseFloat(prompt("Ingrese la temperatura mínima que se registra en su territorio (en grados)"));
+
+        while (!(temperaturaMinima <= 50 && temperaturaMinima >= -50)) {
+            temperaturaMinima = parseFloat(prompt("Ingrese la temperatura mínima que se registra en su territorio (en grados)"));
+        }
+
+        // punto a):
+        if (temperaturaMinima % 2 == 0) {
+            contadorTemperaturaPar++;
+        }
+        
+        // punto b):
+        if (habitantes < menosHabitantes) {
+            menosHabitantes = habitantes;
+            paisMenosHabitantes = pais;
+        }
+
+        // punto c):
+        if (temperaturaMinima > 40) {
+            contadorTemperatura40++;
+        }
+
+        // pundos d):
+        acumuladorHabitantes += habitantes;
+        contadorHabitantes++;
+        promedioHabitantes = acumuladorHabitantes / contadorHabitantes;
+
+        // punto f):
+        if (temperaturaMinima < temperaturaMinimaIngresada || flag == 0) {
+            temperaturaMinimaIngresada = temperaturaMinima;
+            paisTemperaturaMinimaIngresada = pais;
+        }
+
+        seguir = confirm("¿Desea continuar ingresando datos?");
+    } while (seguir);
+
+    document.write("a) La cantidad de temperaturas pares es: " + contadorTemperaturaPar);
+    document.write("<br>b) El nombre del pais con menos habitantes  es: " + paisMenosHabitantes);
+    document.write("<br>c) La cantidad de paises que superan los 40 grados es: " + contadorTemperatura40);
+    document.write("<br>d) El promedio de habitantes entre los paises ingresados  es: " + promedioHabitantes);
+    // no existe el punto e)
+    document.write("<br>f) La temperatura mínima ingresada es: " + temperaturaMinimaIngresada + " y nombre del pais que registro esa temperatura es: " + paisTemperaturaMinimaIngresada);
